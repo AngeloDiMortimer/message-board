@@ -20,4 +20,7 @@ MessageSchema.methods.toJSON = function () {
     return data;
 }
 
-export default model('Message', MessageSchema);
+
+const MessageModel = mongoose.model('Message', MessageSchema);
+
+module.exports = MessageModel;
