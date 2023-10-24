@@ -1,7 +1,5 @@
 const express = require('express');
 const newRouter = require('../routes/new');
-const cors = require('cors');
-const { dbConnection } = require('../database/config');
 
 class Server {
 
@@ -11,20 +9,13 @@ class Server {
         this.paths = {
             new: '/new',
         };
-        this.DBConnection();
-
         this.middlewares();
 
         this.routes();
     }
 
-    async DBConnection() {
-        await dbConnection()
-    }
-
     middlewares() {
         this.app.use(express.json());
-        this.app.use(cors());
     }
 
     routes(){

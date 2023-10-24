@@ -3,7 +3,7 @@ const { getMessages, newMessage } = require('../controllers/new');
 
 const router = express.Router();
 
-router.get('/', getMessages);
+router.get('/',getMessages);
 
 router.post('/', newMessage);
 
