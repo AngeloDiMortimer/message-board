@@ -1,13 +1,30 @@
 const express = require('express');
 const Message = require('../models/Message');
 
-const getMessages = (req, res) => {
-    res.json({
-        msg: 'Lista de mensajes que SIRVE'
-    });
+const getMessages = async (req, res) => {
+
+    const { limit = 10, since = 0 } = req.query;
+
+    try {
+        const messages = await Message.find()
+            .skip(Number(since))
+            .limit(Number(limit));
+
+        res.json({
+            messages
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            msg: 'Error',
+            error
+        });
+    }
 };
 
 const newMessage = async (req, res) => {
+
     try {
         const { username, text } = req.body;
         const newMessage = {
@@ -20,6 +37,7 @@ const newMessage = async (req, res) => {
             msg: 'Created new message',
             messageDB
         });
+        
     } catch (error) {
         console.log(error);
         return res.status(500).json({
