@@ -8,9 +8,6 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT || 5000;
-        this.paths = {
-            new: '/new',
-        };
 
         this.DBConnection();
 
@@ -27,7 +24,7 @@ class Server {
     }
 
     routes(){
-        this.app.use( this.paths.new , newRouter);
+        this.app.use(newRouter);
         this.app.use(cors());
     }
 
