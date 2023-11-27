@@ -21,11 +21,12 @@ class Server {
 
     middlewares() {
         this.app.use(express.json());
+        this.app.use(cors());
     }
 
     routes(){
         this.app.use(newRouter);
-        this.app.use(cors());
+        
     }
 
     listen() {
