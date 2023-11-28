@@ -2,6 +2,7 @@ import Messages from "./Mesages";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import "../styles/card.css";
+import Form from "./Form";
 
 const Card = () => {
     const [msg, setMsg] = useState([]);
@@ -26,18 +27,8 @@ const Card = () => {
             <div className="chat p-2 flex flex-col overflow-y-auto">
                 <Messages messages={msg}/>            
             </div>
-            
-            <div className="form">
-                <form>
-                    <input type="text" className="p-2" placeholder="Username"/>
-                    <input type="text" className="p-2" placeholder="Message"/>
-                    <input type="submit" />
-                </form>
-                
-            </div>
 
-            
-
+            <Form />
         </div>
     )
 }

@@ -3,7 +3,7 @@ const Message = require('../models/Message');
 
 const getMessages = async (req, res) => {
 
-    const { limit = 10, since = 0 } = req.query;
+    const { limit = 50, since = 0 } = req.query;
 
     try {
         const messages = await Message.find()
