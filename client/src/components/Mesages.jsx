@@ -6,8 +6,8 @@ const Messages = ({ messages }) => {
         {messages.map((item) => (
             <div key={item._id} className="px-4">
                 <div className="message-header flex items-center justify-between">
-                    <h1 className="mb-2 font-medium text-xl break-all">{item.username}</h1>
-                    <h1 className="text-slate-500 ml-2">
+                    <h1 className="mb-2 font-medium text-base md:text-xl break-all">{item.username}</h1>
+                    <h1 className="text-slate-500 ml-2 text-sm md:text-lg">
                         {
                         new Date(item.added).toLocaleDateString("default", {
                             year: "numeric",

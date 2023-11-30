@@ -18,7 +18,7 @@ const Card = () => {
     }, []);
 
     return (
-        <div className="content flex my-8 flex-col relative w-1/2 bg-white">
+        <div className="content flex md:my-8 flex-col relative md:w-1/2 bg-white">
             <div className="header bg-darkPurple flex justify-center font-light text-white text-base p-2
             rounded-t-lg">
                 <h1>Created by <span className="text-lightPurple">Angelo Martínez</span></h1>
