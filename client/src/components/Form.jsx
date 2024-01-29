@@ -14,7 +14,7 @@ const Form = () => {
           text,
         };
         axios
-          .post('http://localhost:5000/', data)
+          .post(import.meta.env.VITE_SV_URL, data)
           .then(() => {
             console.log("message has been sent sucessfully")
           })

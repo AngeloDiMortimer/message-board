@@ -8,7 +8,7 @@ const Card = () => {
     const [msg, setMsg] = useState([]);
     useEffect(() => {
       axios
-        .get('http://localhost:5000/')
+        .get(import.meta.env.VITE_SV_URL)
         .then((res) => {
           setMsg(res.data.messages);
         })

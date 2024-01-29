@@ -1,5 +1,3 @@
-
-
 const Messages = ({ messages }) => {
     return (
         <>
