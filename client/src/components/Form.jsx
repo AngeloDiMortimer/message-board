@@ -8,7 +8,8 @@ const Form = () => {
     const [username, setUsername] = useState("");
     const [text, setText] = useState("");
     
-    const sendMessage = () => {
+    const sendMessage = (e) => {
+        e.preventDefault();
         const data = {
           username,
           text,
@@ -16,7 +17,10 @@ const Form = () => {
         axios
           .post(import.meta.env.VITE_SV_URL, data)
           .then(() => {
+            
             console.log("message has been sent sucessfully")
+            setUsername("");
+            setText("");
           })
           .catch((error) => {
             alert('Please input the username or the message');
@@ -25,7 +29,7 @@ const Form = () => {
     }
   return (
     <div className="form p-4">
-        <form className='flex justify-between'>
+        <form className='flex justify-between' onSubmit={sendMessage}> 
             <div className='flex flex-col w-full'>
                 <input type="text"
                 value={username}
@@ -43,7 +47,7 @@ const Form = () => {
             </div>
             
 
-            <button className='p-2' onClick={sendMessage}>
+            <button type='submit' className='p-2'>
             <IconContext.Provider value={{ size: 26 }}>
                 <div>
                     <RiSendPlaneFill />

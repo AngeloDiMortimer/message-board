@@ -15,7 +15,7 @@ const Card = () => {
         .catch((error) => {
           console.log(error);
         });
-    }, []);
+    }, [msg]);
 
     return (
         <div className="content flex md:my-8 flex-col relative md:w-1/2 bg-white">
